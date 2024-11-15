@@ -40,4 +40,4 @@ coat_result.json
     - いいかんじの方法あれば教えてください！
 ↑について、lambda上で動かす必要はないです！
 ローカルPC上で、設置されているjsonファイルを読み込みながら動作するTypeScriptプログラムを作成していけばOKです。
-![alt text](image.png)
+![image](https://github.com/user-attachments/assets/6bdcf4bb-5d3f-4719-890f-19248f105d33)
