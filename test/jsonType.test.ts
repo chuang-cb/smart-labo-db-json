@@ -27,7 +27,7 @@ const testDataSchema: DataStructure = {
         },
         {
           name: "CBob",
-          class_id: 2,
+          class_id: 1,
           grades: {
             subject: "Math",
             score: 85,
@@ -144,15 +144,17 @@ describe("Database Migration Integration Test", () => {
       "SELECT table_name FROM information_schema.tables WHERE table_schema = 'public'"
     );
 
-    expect(tableNames).toContainEqual({ table_name: "classes" });
-    expect(tableNames).toContainEqual({ table_name: "students" });
-    expect(tableNames).toContainEqual({ table_name: "grades" });
+    expect(tableNames).toEqual([
+      { table_name: "classes" },
+      { table_name: "students" },
+      { table_name: "grades" },
+    ]);
 
-    expect(studentsResult).toContainEqual({
-      id: 1,
-      name: "ABob",
-      class_id: 2,
-    });
+    expect(studentsResult).toEqual([
+      { id: 1, name: "ABob", class_id: 2 },
+      { id: 2, name: "BBob", class_id: 2 },
+      { id: 3, name: "CBob", class_id: 1 },
+    ]);
 
     expect(gradesResult).toContainEqual({
       id: 1,
