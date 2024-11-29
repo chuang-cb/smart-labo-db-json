@@ -1,0 +1,24 @@
+{
+  "name": "smart-labo-db-json",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "testDB=testing jest --ci --coverage --colors --maxWorkers=1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-cdk": "^2.166.0",
+    "fs": "^0.0.1-security",
+    "jest": "^29.7.0",
+    "json5": "^2.2.3",
+    "typeorm": "^0.3.20"
+  },
+  "devDependencies": {
+    "@jest/types": "^29.6.3",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.9.1",
+    "ts-jest": "^29.2.5",
+    "typescript": "^5.6.3"
+  }
+}

@@ -5,6 +5,7 @@
   process_pattern_group_index: 2,
   process_pattern_index: 5,
   coat_result: {
+    coat_id: 1,
   },
   other_table: [
     {...}, {...}

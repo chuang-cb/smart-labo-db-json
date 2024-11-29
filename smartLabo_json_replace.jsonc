@@ -1,0 +1,77 @@
+{
+    // ************************************************************************************************
+    // キュアプロセス - 実績JSONサンプル
+    // 
+    // 実行→管理のJSONの取り決めは以下を参照。
+    // https://teams.microsoft.com/l/message/19:083c44516f3447a68021b2c2a66fa23b@thread.tacv2/1730982052579?tenantId=fdc3f8bd-993b-4d30-98b4-f531ed2ecc5c&groupId=6b8d255d-b07d-4e84-bbdd-8bda5b76ef99&parentMessageId=1727682597737&teamName=(EX)%E3%82%B9%E3%83%9E%E3%83%A9%E3%83%9C%E5%AE%9F%E8%A1%8C%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E8%A8%AD%E8%A8%88%E3%83%BB%E9%96%8B%E7%99%BA&channelName=20.%E9%96%8B%E7%99%BA&createdTime=1730982052579
+    // ************************************************************************************************
+    "process_result": {
+        // "process_result_id": 1, SERIAL
+        "run_id": 1234,
+        "process_pattern_group_index": 1,
+        "process_pattern_index": 1,
+        "process_index": 1,
+        "major_version": 1,
+        "process_id": 1,
+        "wafer_id": 1,
+        "result_start_at": "2024/11/20 16:11:01",
+        "result_end_at": "2024/11/20 22:11:20",
+        "is_unplaned": false,
+        "substrate_id": 1,
+        // ****************************************************************************************
+        // 以降、プロセス固有の情報
+        // ****************************************************************************************
+        "cure_result": {
+            // "cure_result_id": 1, SERIAL8
+            "is_success": true,
+            "result_abnormality_id": null,
+            "process_result_id": 1,
+            // ************************************************************************************
+            // Modify
+            // ************************************************************************************
+            "cure_plan_modify": {
+                // "cure_result_id": 5, SERIAL8
+                "cure_indicated_value_id": 1,
+                "is_stand_alone": false,
+                "equipment_id": 5,
+                "cure_indicated_modify": {
+                    // "cure_result_id": 5, SERIAL8
+                    "recipe_name": "ステップ1_230℃_35min",
+                    "sptep_counts": 1,
+                    "cooling_rate": 5, // ℃/min
+                    "cure_step_indicated_modify": [ // ※指示値においてマルチステップキュアである場合はここに複数の結果が保存される。
+                        {
+                            //  cure_result_id SERIAL8 NOT NULL,
+                            "step_no": 1,
+                            "target_temperature": 230, // ℃
+                            "retention_time": 35, // 分
+                            "heating_rate": 5.0, // ℃/min
+                            "pressure": 1.0, // atm ※装置側単位 mTorr なので、実行側で変換。
+                            "gas_flow_rate": 50, // SLM
+                            "gas_target_temperature": 0, // ℃
+                            "gas_temperature_adjustment_value": 0 // ℃
+                        }
+                    ]
+                }
+            },
+            // ************************************************************************************
+            // 実績
+            // ************************************************************************************
+            "cure_reult_value": {
+                //  cure_result_id SERIAL8 NOT NULL,
+                "furnace_no": 1, // 1 or 2
+                "furnace_position": 1, // 1～50
+                "cooling_rate": 5.0, // ℃/min
+                "gas_id": 1,
+                "cure_step_reult_value": [ // ※指示値においてマルチステップキュアである場合はここに複数の結果が保存される。
+                    {
+                        "step_no": 1,
+                        "zone1_target_temperature_avg": 230.0, // ℃
+                        "zone1_target_temperature_min": 230.0, // ℃
+                        "zone1_target_temperature_max": 230.0 // ℃
+                    }
+                ]
+            }
+        }
+    }
+}
